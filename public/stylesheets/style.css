@@ -1,0 +1,137 @@
+body {
+  background: rgba(227, 233, 255, 0.3);
+  padding: 0;
+  color: #333333;
+  font-size: 32px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300; }
+
+a {
+  color: #00B7FF; }
+
+left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1000px;
+  height: 900px;
+  padding: 20px; }
+
+right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 440px;
+  height: 900px;
+  padding: 20px; }
+
+.uv-1 {
+  color: #005340; }
+
+.uv-2 {
+  color: #2C947D; }
+
+.uv-3 {
+  color: #12866C; }
+
+.uv-4 {
+  color: #D0C61B; }
+
+.uv-5 {
+  color: #FFF772; }
+
+.uv-6 {
+  color: #E6DD44; }
+
+.uv-7 {
+  color: #807900; }
+
+.uv-8 {
+  color: #D96196; }
+
+.uv-9 {
+  color: #C33975; }
+
+.uv-10 {
+  color: #8E0943; }
+
+.uv-11 {
+  color: #6D0030; }
+
+em {
+  font-size: 22px; }
+
+iframe {
+  border: 1px solid #777777;
+  box-shadow: 1px 4px 14px rgba(0, 0, 0, 0.1); }
+
+week {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin: 16px 2px;
+  padding: 0;
+  text-align: center; }
+  week summary {
+    padding: 16px 100px; }
+  week daily {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center; }
+    week daily daycard {
+      background: #fff;
+      display: inline-block;
+      overflow: hidden;
+      width: 17vw;
+      border: 1px solid #777777;
+      padding: 16px 1vw;
+      margin: 0.5vw;
+      box-shadow: 1px 4px 14px rgba(0, 0, 0, 0.1); }
+      week daily daycard icon, week daily daycard summary, week daily daycard sunrise, week daily daycard sunset, week daily daycard precipprobability, week daily daycard templow, week daily daycard temphigh, week daily daycard humidity, week daily daycard windspeed, week daily daycard uvindex {
+        height: 6vh; }
+      week daily daycard day {
+        display: block; }
+      week daily daycard summary {
+        display: block;
+        font-size: 18px;
+        line-height: 1.2;
+        margin: 16px 0; }
+      week daily daycard icon {
+        display: block;
+        color: #555555;
+        margin: 0.5rem 0;
+        font-size: 3rem;
+        line-height: 1.4; }
+      week daily daycard sunrise {
+        display: block; }
+      week daily daycard sunset {
+        display: block; }
+      week daily daycard moonphase {
+        display: block; }
+      week daily daycard precipintensity {
+        display: block; }
+      week daily daycard precipintensitymax {
+        display: block; }
+      week daily daycard precipintensitymaxtime {
+        display: block; }
+      week daily daycard precipprobability {
+        display: block; }
+      week daily daycard templow {
+        display: block; }
+      week daily daycard temphigh {
+        display: block; }
+      week daily daycard tempapparentlow {
+        display: block; }
+      week daily daycard tempapparenthigh {
+        display: block; }
+      week daily daycard humidity {
+        display: block; }
+      week daily daycard windspeed {
+        display: block; }
+      week daily daycard uvindex {
+        display: block;
+        text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.1); }
+
+/*# sourceMappingURL=style.css.map */

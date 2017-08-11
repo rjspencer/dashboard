@@ -1,0 +1,35 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+  <left>
+    <week>
+      <summary>{{ forecast.daily.summary }}</summary>
+      <daily>
+        {% for day in forecast.daily.data %}
+        {% if loop.index < 4 %}
+          <daycard>
+            <day>{{ day.time|date('l') }}</day>
+            <icon><i class="wi {{ iconMap[day.icon] }}"></i></icon>
+            <summary>{{ day.summary }}</summary>
+            <sunrise><i class="wi wi-sunrise"></i> {{ day.sunriseTime|date('H:i') }}</sunrise>
+            <sunset><i class="wi wi-sunset"></i> {{ day.sunsetTime|date('H:i') }}</sunset>
+            <precipprobability>{{ (day.precipProbability * 100)|number_format }} <i class="wi wi-humidity"></i> {{ day.precipType }}</precipprobability>
+            <templow>{{ day.temperatureMin|number_format }}<i class="wi wi-fahrenheit"></i> <i class="wi wi-thermometer-exterior"></i> {{ day.temperatureMinTime|date('H:i') }}</templow>
+            <temphigh>{{ day.temperatureMax|number_format }}<i class="wi wi-fahrenheit"></i> <i class="wi wi-thermometer"></i> {{ day.temperatureMaxTime|date('H:i') }}</temphigh>
+            <humidity>{{ day.humidity * 100 }}% <em>Humidity</em></humidity>
+            <windspeed>{{ day.windSpeed|number_format }}-{{ day.windGust|number_format }}<em>mph</em> <i class="wi wi-strong-wind"></i> {{ day.windDirection }}</windspeed>
+            <uvindex class="uv-{{ day.uvIndex }}">UV Index: {{ day.uvIndex }}</uvindex>
+          </daycard>
+        {% endif %}
+        {% endfor %}
+        </daily>
+      </week>
+  </left>
+  <right>
+    {% if calendar.type == 'agenda' %}
+      <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=rjspencer82%40gmail.com&amp;color=%23691426&amp;ctz=America%2FChicago" style="border-width:0;height:90vh;margin:5vh;padding:0;" width="400" height="600" frameborder="0" scrolling="no"></iframe>
+    {% else %}
+      <iframe src="https://calendar.google.com/calendar/embed?src=rjspencer82%40gmail.com&ctz=America/Chicago" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    {% endif %}  
+  </right>
+{% endblock %}
