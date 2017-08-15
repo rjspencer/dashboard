@@ -1,10 +1,45 @@
 body
   background: rgba(227, 233, 255, 0.3)
   padding: 0
-  color: #333333
+  color: #444
   font-size: 32px
   font-family: 'Raleway', sans-serif
   font-weight: 300
+
+.viewport
+  position: fixed
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  margin: 0
+  padding: 0
+
+  .view
+    transition: all ease-out 0.3s
+    position: absolute
+    width: 100vw
+    height: 100vh
+
+    &.active
+      top: 0 !important
+      left: 0 !important
+
+    &#top-left
+      top: -100vh
+      left: -100vw
+
+    &#top-right
+      top: -100vh
+      left: 100vw
+    
+    &#bottom-left
+      top: 100vh
+      left: -100vw
+
+    &#bottom-right
+      top: 100vh
+      left: 100vw
 
 a
   color: #00B7FF
@@ -51,96 +86,91 @@ right
 em
   font-size: 22px
 
-iframe
+iframe.iframe-view
   border: 1px solid #777777
   box-shadow: 1px 4px 14px rgba(0,0,0,0.1)
 
-week
-  display: block
-  position: relative
-  overflow: hidden
+.summary
+  padding: 5vh 100px 0 100px
+  height: 10vh
+
+.daily
+  height: 80vh
   width: 100%
-  margin: 16px 2px
-  padding: 0
+  margin: 0
+  padding-bottom: 5vh
   text-align: center
+  
+  .card
+    background: #fff
+    display: inline-block
+    overflow: hidden
+    width: 25vw
+    border: 1px solid #777777
+    padding: 16px 1vw
+    margin: 0.5vw
+    font-size: 2.4rem
+    line-height: 1.7
+    box-shadow: 1px 4px 14px rgba(0,0,0,0.1)
 
-  summary
-    padding: 16px 100px
+    icon, summary, sunrise, sunset, precipprobability, templow, temphigh, humidity, windspeed, uvindex
+      height: 6vh
 
-  daily
-    width: 100%
-    margin: 0
-    padding: 0
-    text-align: center
-    
-    daycard
-      background: #fff
-      display: inline-block
-      overflow: hidden
-      width: 17vw
-      border: 1px solid #777777
-      padding: 16px 1vw
-      margin: 0.5vw
-      box-shadow: 1px 4px 14px rgba(0,0,0,0.1)
+    day
+      display: block
 
-      icon, summary, sunrise, sunset, precipprobability, templow, temphigh, humidity, windspeed, uvindex
-        height: 6vh
+    summary
+      display: block
+      font-size: 1.5rem
+      margin: 2rem 0 0 0
 
-      day
-        display: block
+    icon
+      display: block
+      color: #555555
+      margin: 0.5rem 0
+      font-size: 4rem
+      line-height: 1
 
-      summary
-        display: block
-        font-size: 18px
-        line-height: 1.2
-        margin: 16px 0
+    sunrise
+      display: block
 
-      icon
-        display: block
-        color: #555555
-        margin: 0.5rem 0
-        font-size: 3rem
-        line-height: 1.4
+    sunset
+      display: block
 
-      sunrise
-        display: block
+    moonphase
+      display: block
 
-      sunset
-        display: block
+    precipintensity
+      display: block
 
-      moonphase
-        display: block
+    precipintensitymax
+      display: block
 
-      precipintensity
-        display: block
+    precipintensitymaxtime
+      display: block
 
-      precipintensitymax
-        display: block
+    precipprobability
+      display: block
 
-      precipintensitymaxtime
-        display: block
+    templow
+      display: block
 
-      precipprobability
-        display: block
+    temphigh
+      display: block
 
-      templow
-        display: block
+    tempapparentlow
+      display: block
 
-      temphigh
-        display: block
+    tempapparenthigh
+      display: block
 
-      tempapparentlow
-        display: block
+    humidity
+      display: block
 
-      tempapparenthigh
-        display: block
+    windspeed
+      display: block
 
-      humidity
-        display: block
+    uvindex
+      display: block
+      text-shadow: 1px 2px 1px rgba(0,0,0,0.1)
 
-      windspeed
-        display: block
-
-      uvindex
-        display: block
-        text-shadow: 1px 2px 1px rgba(0,0,0,0.1)

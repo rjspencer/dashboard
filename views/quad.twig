@@ -1,0 +1,97 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<div class="viewport">
+    <div id="top-left" class="view">
+      <div class="summary">{{ forecast.daily.summary }}</div>
+      <div class="daily">
+        {% for day in forecast.daily.data %}
+        {% if loop.index < 4 %}
+          <div class="card">
+            <day>{{ day.time|date('l') }}</day>
+            <icon><i class="wi {{ iconMap[day.icon] }}"></i></icon>
+            <summary>{{ day.summary }}</summary>
+            <sunrise><i class="wi wi-sunrise"></i> {{ day.sunriseTime|date('H:i') }}</sunrise>
+            <sunset><i class="wi wi-sunset"></i> {{ day.sunsetTime|date('H:i') }}</sunset>
+            <templow>{{ day.temperatureMin|number_format }}<i class="wi wi-fahrenheit"></i> <i class="wi wi-thermometer-exterior"></i> {{ day.temperatureMinTime|date('H:i') }}</templow>
+            <temphigh>{{ day.temperatureMax|number_format }}<i class="wi wi-fahrenheit"></i> <i class="wi wi-thermometer"></i> {{ day.temperatureMaxTime|date('H:i') }}</temphigh>
+            <humidity>{{ day.humidity * 100 }}% <em>Humidity</em></humidity>
+            <windspeed>{{ day.windSpeed|number_format }}-{{ day.windGust|number_format }}<em>mph</em> <i class="wi wi-strong-wind"></i> {{ day.windDirection }}</windspeed>
+            <uvindex class="uv-{{ day.uvIndex }}">UV Index: {{ day.uvIndex }}</uvindex>
+          </div>
+        {% endif %}
+        {% endfor %}
+        </div>
+    </div>
+
+    <div id="top-right" class="view">
+      <h1>TOP RIGHT</h1>
+        <iframe class="iframe-view" width="1440" height="900" src="https://calendar.google.com/calendar/render#main_7%7Cmonth" seamless></iframe>
+    </div>
+
+    <div id="bottom-left" class="view">
+      <h1>BOTTOM LEFT</h1>
+
+    </div>
+
+    <div id="bottom-right" class="view">
+      <h1>BOTTOM RIGHT</h1>
+
+    </div>
+</div>
+
+<script>
+var ViewAnimate = {
+  interval: 5000,
+  views: [
+    {
+      'element': {},
+      'id': 'top-left'
+    },
+    {
+      'element': {},
+      'id': 'top-right'
+    },
+    {
+      'element': {},
+      'id': 'bottom-left'
+    },
+    {
+      'element': {},
+      'id': 'bottom-right'
+    }
+  ],
+
+  init: function () {
+    console.log('Initializing ViewAnimate.')
+    this.views.forEach((item, index) => {
+      this.views[index].element = document.getElementById(item.id)
+    })
+    this.current = this.views.shift()
+    this.setView(this.current)
+    this.loopViews()
+  },
+
+  unsetView: function (view) {
+    view.element.className = view.element.className.replace(" active", "");
+  },
+
+  setView: function (view) {
+    view.element.className = view.element.className + " active"
+  },
+
+  loopViews: function () {
+    var viewInterval = setInterval(function (){ 
+      this.unsetView(this.current)
+      this.views.push(this.current)
+      this.current = this.views.shift()
+      this.setView(this.current)
+    }.bind(this), this.interval)
+  }
+}
+
+ViewAnimate.init()
+</script>
+
+{% endblock %}
+

@@ -8,7 +8,7 @@ const position = {
   longitude: '-87.5104'
 }
 
-function getForecast(res, callback) {
+function getForecast (res, callback) {
   DarkSkyApi.loadForecast(position)
   .then(function (result) {
     console.log(result.daily.data[0])
@@ -19,7 +19,7 @@ function getForecast(res, callback) {
 /* GET home page. */
 router.get('/', function (req, res, next) {
   getForecast(res, function (res, forecast) {
-    res.render('index', {
+    res.render('quad', {
       title: 'Dashboard',
       calendar: {
         type: 'agenda'
