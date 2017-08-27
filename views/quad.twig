@@ -1,5 +1,10 @@
 {% extends 'layout.twig' %}
 
+{% block scripts %}
+<script src="/javascripts/animate.js" type="text/javascript"></script>
+<script src="/javascripts/update.js" type="text/javascript"></script>
+{% endblock %}
+
 {% block body %}
 <div class="viewport">
     <div id="top-left" class="view">
@@ -25,13 +30,12 @@
     </div>
 
     <div id="top-right" class="view">
-      <h1>TOP RIGHT</h1>
-        <iframe class="iframe-view" width="1440" height="900" src="https://calendar.google.com/calendar/render#main_7%7Cmonth" seamless></iframe>
+      <iframe src="https://calendar.google.com/calendar/embed?src=6sl5mgpgmkvankaefnh8tgjj1s%40group.calendar.google.com&ctz=America/Chicago" style="border: 0; width: 100vw; height: 100vh;" width="1440" height="900" frameborder="0" scrolling="no"></iframe>
     </div>
 
     <div id="bottom-left" class="view">
-      <h1>BOTTOM LEFT</h1>
-
+      <iframe seamless style="width: 100vw; height: 100vh; border: none;" src="https://widget.eventlink.com/?c=%5B%7B%22i%22%3A%22d24bb0eb-d892-48c8-a57b-eb757ccce055%22%2C%22t%22%3A%22Bibich%20Elementary%20School%22%2C%22c%22%3A%22%2345D4FF%22%2C%22f%22%3A%22%23000000%22%7D%0A%2C%7B%22i%22%3A%2264425b25-585b-44d2-90ea-9c42e04b1cd0%22%2C%22t%22%3A%22Lake%20Central%20School%20District%22%2C%22c%22%3A%22%2345D4FF%22%2C%22f%22%3A%22%23000000%22%7D%5D&amp;t=647d3d04-b05d-49b5-a93c-23bdeb687af9">
+      </iframe>
     </div>
 
     <div id="bottom-right" class="view">
@@ -39,59 +43,6 @@
 
     </div>
 </div>
-
-<script>
-var ViewAnimate = {
-  interval: 5000,
-  views: [
-    {
-      'element': {},
-      'id': 'top-left'
-    },
-    {
-      'element': {},
-      'id': 'top-right'
-    },
-    {
-      'element': {},
-      'id': 'bottom-left'
-    },
-    {
-      'element': {},
-      'id': 'bottom-right'
-    }
-  ],
-
-  init: function () {
-    console.log('Initializing ViewAnimate.')
-    this.views.forEach((item, index) => {
-      this.views[index].element = document.getElementById(item.id)
-    })
-    this.current = this.views.shift()
-    this.setView(this.current)
-    this.loopViews()
-  },
-
-  unsetView: function (view) {
-    view.element.className = view.element.className.replace(" active", "");
-  },
-
-  setView: function (view) {
-    view.element.className = view.element.className + " active"
-  },
-
-  loopViews: function () {
-    var viewInterval = setInterval(function (){ 
-      this.unsetView(this.current)
-      this.views.push(this.current)
-      this.current = this.views.shift()
-      this.setView(this.current)
-    }.bind(this), this.interval)
-  }
-}
-
-ViewAnimate.init()
-</script>
 
 {% endblock %}
 
