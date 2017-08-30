@@ -1,6 +1,7 @@
 var Update = {
-  intervalSeconds: 60 * 30, // Update every 30mins
+  intervalSeconds: 60 * 90, // Update every 90mins
   iframes: [],
+  imageOfTheDay: {},
 
   init: function () {
     this.iframes = document.getElementsByTagName('iframe')
@@ -8,7 +9,7 @@ var Update = {
   },
 
   startService: function () {
-    this.interval = setInterval(this.service.bind(this), this.intervalSeconds)
+    this.interval = setInterval(this.service.bind(this), this.intervalSeconds * 1000)
   },
 
   terminateService: function () {
@@ -16,7 +17,7 @@ var Update = {
   },
 
   service: function () {
-    // console.log(this)
+    location.reload(true)
   }
 }
 

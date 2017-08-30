@@ -15,7 +15,7 @@ body {
   margin: 0;
   padding: 0; }
   .viewport .view {
-    transition: all ease-out 0.3s;
+    transition: all ease 0.5s;
     position: absolute;
     width: 100vw;
     height: 100vh; }
@@ -38,6 +38,9 @@ body {
       top: 100vh;
       left: 100vw;
       background-color: #555500; }
+    .viewport .view #image-of-the-day {
+      min-height: 100vh;
+      min-width: 100vw; }
 
 a {
   color: #00B7FF; }

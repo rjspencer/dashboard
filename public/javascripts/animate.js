@@ -1,5 +1,5 @@
 var ViewAnimate = {
-  interval: 5000,
+  interval: 10000,
   views: [
     {
       'element': {},
